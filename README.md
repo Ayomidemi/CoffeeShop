@@ -6,7 +6,7 @@
 
 ## Step 1: Clone the repo
 
-To clone the repo you will open your terminal the run:
+To clone the repo you will:
 
 ```bash
 # git clone
