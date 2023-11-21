@@ -28,6 +28,7 @@ const FavoriteScreen = ({navigation}: any) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <Header title="Favourites" />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -35,8 +36,6 @@ const FavoriteScreen = ({navigation}: any) => {
         <View
           style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
           <View style={styles.ItemContainer}>
-            <Header title="Favourites" />
-
             {FavoritesList.length === 0 ? (
               <EmptyListAnimation title={'No Favourites'} />
             ) : (
@@ -85,7 +84,6 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
-    marginTop: SPACING.space_20,
   },
   ScrollViewInnerView: {
     flex: 1,

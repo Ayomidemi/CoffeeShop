@@ -121,11 +121,11 @@ const HomeScreen = ({navigation}: any) => {
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
+      <Header />
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
-        <Header />
-
         <Text style={styles.ScreenTitle}>
           Find the best{'\n'}coffee for you
         </Text>

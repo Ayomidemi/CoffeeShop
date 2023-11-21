@@ -45,14 +45,14 @@ const CartScreen = ({navigation}: any) => {
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
 
+      <Header title="Cart" />
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.ScrollViewFlex}>
         <View
           style={[styles.ScrollViewInnerView, {marginBottom: tabBarHeight}]}>
           <View style={styles.ItemContainer}>
-            <Header title="Cart" />
-
             {CartList.length === 0 ? (
               <EmptyListAnimation title={'Cart is Empty'} />
             ) : (
@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
   },
   ScrollViewFlex: {
     flexGrow: 1,
-    marginTop: SPACING.space_20,
   },
   ScrollViewInnerView: {
     flex: 1,

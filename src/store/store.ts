@@ -213,7 +213,7 @@ export const useStore = create(
                   new Date().toDateString() +
                   ' ' +
                   new Date().toLocaleTimeString(),
-                cartList: state.cartList,
+                CartList: state.cartList,
                 CartListPrice: temp.toFixed(2).toString(),
               });
             } else {
@@ -222,7 +222,7 @@ export const useStore = create(
                   new Date().toDateString() +
                   ' ' +
                   new Date().toLocaleTimeString(),
-                cartList: state.cartList,
+                CartList: state.cartList,
                 CartListPrice: temp.toFixed(2).toString(),
               });
             }

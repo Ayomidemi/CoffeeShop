@@ -28,6 +28,7 @@ export default Header;
 const styles = StyleSheet.create({
   HeaderContainer: {
     padding: SPACING.space_30,
+    marginTop: SPACING.space_24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
