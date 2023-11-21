@@ -24,6 +24,7 @@ export const useStore = create(
       favoritesList: [],
       cartList: [],
       orderHistoryList: [],
+
       addTocart: (cartItem: any) =>
         set(
           produce(state => {
@@ -41,7 +42,7 @@ export const useStore = create(
                     break;
                   }
                 }
-                if (!size) {
+                if (size === false) {
                   state.cartList[i].prices.push(cartItem.prices[0]);
                 }
                 state.cartList[i].prices.sort((a: any, b: any) => {
@@ -56,7 +57,7 @@ export const useStore = create(
                 break;
               }
             }
-            if (!found) {
+            if (found === false) {
               state.cartList.push(cartItem);
             }
           }),
@@ -65,19 +66,24 @@ export const useStore = create(
       calculateCartPrice: () =>
         set(
           produce(state => {
-            let totalPrice = 0;
+            let totalprice = 0;
             for (let i = 0; i < state.cartList.length; i++) {
-              let tempPrice = 0;
+              let tempprice = 0; // Initialize tempprice outside the inner loop
               for (let j = 0; j < state.cartList[i].prices.length; j++) {
-                tempPrice =
-                  tempPrice +
-                  parseFloat(state.cartList[i].prices[j].price) *
-                    state.cartList[i].prices[j].quantity;
+                const price = parseFloat(state.cartList[i].prices[j].price);
+                const quantity = state.cartList[i].prices[j].quantity;
+
+                if (!isNaN(price)) {
+                  tempprice = tempprice + price * quantity;
+                }
               }
-              state.cartList[i].ItemPrice = tempPrice.toFixed(2).toString();
-              totalPrice = totalPrice + tempPrice;
+
+              state.cartList[i].ItemPrice = isNaN(tempprice)
+                ? '0.00'
+                : tempprice.toFixed(2).toString();
+              totalprice = totalprice + tempprice;
             }
-            state.cartPrice = totalPrice.toFixed(2).toString();
+            state.cartPrice = totalprice.toFixed(2).toString();
           }),
         ),
 

@@ -92,6 +92,32 @@ const HomeScreen = ({navigation}: any) => {
     setSearchText('');
   };
 
+  const addToCart = useStore((state: any) => state.addTocart);
+  const calculateCartPrice = useStore((state: any) => state.calculateCartPrice);
+
+  const CoffeeCardAddToCart = ({
+    id,
+    index,
+    name,
+    roasted,
+    imagelink_square,
+    special_ingredient,
+    type,
+    prices,
+  }: any) => {
+    addToCart({
+      id,
+      index,
+      name,
+      roasted,
+      imagelink_square,
+      special_ingredient,
+      type,
+      prices,
+    });
+    calculateCartPrice();
+  };
+
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -219,7 +245,7 @@ const HomeScreen = ({navigation}: any) => {
                   special_ingredient={item?.special_ingredient}
                   average_rating={item?.average_rating}
                   price={item?.prices[2]}
-                  buttonPressHandler={() => {}}
+                  buttonPressHandler={CoffeeCardAddToCart}
                 />
               </TouchableOpacity>
             );
@@ -257,7 +283,7 @@ const HomeScreen = ({navigation}: any) => {
                   special_ingredient={item.special_ingredient}
                   average_rating={item.average_rating}
                   price={item.prices[2]}
-                  buttonPressHandler={() => {}}
+                  buttonPressHandler={CoffeeCardAddToCart}
                 />
               </TouchableOpacity>
             );

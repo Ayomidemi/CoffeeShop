@@ -160,7 +160,7 @@ const Details = ({navigation, route}: any) => {
               imagelink_square: ItemOfIndex.imagelink_square,
               special_ingredient: ItemOfIndex.special_ingredient,
               type: ItemOfIndex.type,
-              price: price,
+              pricee: price,
             });
           }}
         />
