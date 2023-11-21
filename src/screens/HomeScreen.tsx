@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import Toast from 'react-native-toast-message';
 
 import {useStore} from '../store/store';
 import {
@@ -116,6 +117,11 @@ const HomeScreen = ({navigation}: any) => {
       prices,
     });
     calculateCartPrice();
+    Toast.show({
+      type: 'success',
+      text1: `${name} is Added to Cart`,
+      position: 'bottom',
+    });
   };
 
   return (

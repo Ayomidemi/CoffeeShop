@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Toast from 'react-native-toast-message';
 
 import Details from './src/screens/Details';
 import Payments from './src/screens/Payments';
@@ -30,6 +31,8 @@ function App(): JSX.Element {
           options={{animation: 'slide_from_bottom'}}
         />
       </Stack.Navigator>
+
+      <Toast />
     </NavigationContainer>
   );
 }
